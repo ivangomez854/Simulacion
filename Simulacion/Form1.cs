@@ -22,9 +22,42 @@ namespace Simulacion
         {
             var test = new MetodoCongruencialMixto(15, 654, 1024, 16);
 
-            test.generarRandoms(10000);
+            Console.WriteLine("Primer RND");
+            test.obtenerProximoRandom();
+            var primero = test.getVectorEstado();
 
-            var vector = test.getVectorEstado();
+            Console.WriteLine("RND: " + Math.Round(primero.rnd, 4));
+            Console.WriteLine("XI: " + primero.xi);
+            Console.WriteLine("ORDEN: " + primero.orden);
+
+            Console.WriteLine("..................................");
+
+            test.generarRandoms(30);
+
+            var salida = test.getVectorEstado();
+
+            Console.WriteLine("RND: " + Math.Round(salida.rnd, 4));
+            Console.WriteLine("XI: " + salida.xi);
+            Console.WriteLine("ORDEN: " + salida.orden);
+
+
+            Console.WriteLine("..................................");
+
+
+            var lista = test.generarListaRandoms(25);
+            foreach(var item in lista)
+            {
+                Console.WriteLine("RND: " + Math.Round(item.Value, 4));
+                Console.WriteLine("ORDEN: " + item.Key);
+                Console.WriteLine("..................................");
+            }
+
+            Console.WriteLine("..................................");
+
+            salida = test.getVectorEstado();
+            Console.WriteLine("RND: " + Math.Round(salida.rnd, 4));
+            Console.WriteLine("XI: " + salida.xi);
+            Console.WriteLine("ORDEN: " + salida.orden);
         }
     }
 }

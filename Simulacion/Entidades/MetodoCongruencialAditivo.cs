@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Simulacion.Entidades
 {
-    internal class MetodoCongruencialMixto
+    internal class MetodoCongruencialAditivo
     {
         private double a;
         private double c;
@@ -15,7 +14,7 @@ namespace Simulacion.Entidades
         private double semilla;
 
         private List<FilaVectorEstado> vectorEstado;
-        public MetodoCongruencialMixto(double a, double c, double m, double semilla)
+        public MetodoCongruencialAditivo(double a, double c, double m, double semilla)
         {
             this.a = a;
             this.c = c;
@@ -36,12 +35,12 @@ namespace Simulacion.Entidades
 
         public void generarRandoms(int cantidad)
         {
-            for(int i = 0; i < cantidad; i++)
+            for (int i = 0; i < cantidad; i++)
             {
                 this.vectorEstado[1].xi = (a * this.vectorEstado[0].xi + c) % m;
                 this.vectorEstado[1].rnd = this.vectorEstado[1].xi / m;
                 this.vectorEstado[1].orden = this.vectorEstado[0].orden + 1;
-                
+
                 this.vectorEstado[0].xi = this.vectorEstado[1].xi;
                 this.vectorEstado[0].rnd = this.vectorEstado[1].rnd;
                 this.vectorEstado[0].orden = this.vectorEstado[1].orden;
@@ -57,7 +56,7 @@ namespace Simulacion.Entidades
                 this.vectorEstado[1].xi = (a * this.vectorEstado[0].xi + c) % m;
                 this.vectorEstado[1].rnd = this.vectorEstado[1].xi / m;
                 this.vectorEstado[1].orden = this.vectorEstado[0].orden + 1;
-                
+
                 this.vectorEstado[0].xi = this.vectorEstado[1].xi;
                 this.vectorEstado[0].rnd = this.vectorEstado[1].rnd;
                 this.vectorEstado[0].orden = this.vectorEstado[1].orden;
@@ -78,4 +77,5 @@ namespace Simulacion.Entidades
             return this.vectorEstado[0];
         }
     }
+}
 }
