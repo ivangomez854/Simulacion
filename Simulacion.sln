@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32804.467
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simulacion", "Simulacion\Simulacion.csproj", "{B011D495-5953-455C-B56C-8B8CC7B5E735}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "generadores-variable-aleatoria", "Simulacion\generadores-variable-aleatoria.csproj", "{B011D495-5953-455C-B56C-8B8CC7B5E735}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

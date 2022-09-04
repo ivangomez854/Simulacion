@@ -46,9 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entidades\FilaVectorEstado.cs" />
-    <Compile Include="Entidades\MetodoCongruencialAditivo.cs" />
-    <Compile Include="Entidades\MetodoCongruencialMixto.cs" />
+    <Compile Include="Entidades\GeneradorVANormal.cs" />
+    <Compile Include="Entidades\Randoms\FilaVectorEstadoRnd.cs" />
+    <Compile Include="Entidades\Randoms\IGeneradorRandom.cs" />
+    <Compile Include="Entidades\Randoms\MetodoCongruencialAditivo.cs" />
+    <Compile Include="Entidades\Randoms\MetodoCongruencialMixto.cs" />
+    <Compile Include="Entidades\VariableAleatoriaNormal.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -82,5 +85,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

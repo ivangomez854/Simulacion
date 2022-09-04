@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.button1 = new System.Windows.Forms.Button();
+            this.btnVANormal = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button1
@@ -41,11 +42,22 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // btnVANormal
+            // 
+            this.btnVANormal.Location = new System.Drawing.Point(94, 301);
+            this.btnVANormal.Name = "btnVANormal";
+            this.btnVANormal.Size = new System.Drawing.Size(125, 23);
+            this.btnVANormal.TabIndex = 1;
+            this.btnVANormal.Text = "Simular Normal";
+            this.btnVANormal.UseVisualStyleBackColor = true;
+            this.btnVANormal.Click += new System.EventHandler(this.btnVANormal_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnVANormal);
             this.Controls.Add(this.button1);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -56,6 +68,7 @@
         #endregion
 
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnVANormal;
     }
 }
 
