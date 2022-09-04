@@ -68,7 +68,7 @@ namespace Simulacion
 
             var generador = new GeneradorVANormal(rnd, 12, 2);
 
-            var lista = generador.generarListaRndNormal(31);
+            var lista = generador.generarListaVA(31);
 
             foreach(var item in lista)
             {
@@ -78,7 +78,7 @@ namespace Simulacion
             }
 
             Console.WriteLine("Le pido generar 3 mas");
-            lista = generador.generarListaRndNormal(3);
+            lista = generador.generarListaVA(3);
 
             foreach (var item in lista)
             {
@@ -96,7 +96,7 @@ namespace Simulacion
 
 
             Console.WriteLine("Le pido generar 1 mas");
-            lista = generador.generarListaRndNormal(1);
+            lista = generador.generarListaVA(1);
 
             foreach (var item in lista)
             {
@@ -106,7 +106,7 @@ namespace Simulacion
             }
 
             Console.WriteLine("Le pido generar 1 mas");
-            lista = generador.generarListaRndNormal(1);
+            lista = generador.generarListaVA(1);
 
             foreach (var item in lista)
             {
@@ -122,7 +122,7 @@ namespace Simulacion
 
             var generador = new GeneradorVAUniforme(rnd, 2, 12);
 
-            var lista = generador.generarListaRndUniforme(31);
+            var lista = generador.generarListaVA(31);
 
             foreach (var item in lista)
             {
@@ -132,7 +132,7 @@ namespace Simulacion
             }
 
             Console.WriteLine("Le pido generar 3 mas");
-            lista = generador.generarListaRndUniforme(3);
+            lista = generador.generarListaVA(3);
 
             foreach (var item in lista)
             {
@@ -150,7 +150,7 @@ namespace Simulacion
 
 
             Console.WriteLine("Le pido generar 1 mas");
-            lista = generador.generarListaRndUniforme(1);
+            lista = generador.generarListaVA(1);
 
             foreach (var item in lista)
             {
@@ -160,7 +160,7 @@ namespace Simulacion
             }
 
             Console.WriteLine("Le pido generar 1 mas");
-            lista = generador.generarListaRndUniforme(1);
+            lista = generador.generarListaVA(1);
 
             foreach (var item in lista)
             {
@@ -176,7 +176,7 @@ namespace Simulacion
 
             var generador = new GeneradorVAPoisson(rnd, 12);
 
-            var lista = generador.generarListaRndPoisson(31);
+            var lista = generador.generarListaVA(31);
 
             foreach (var item in lista)
             {
@@ -186,7 +186,7 @@ namespace Simulacion
             }
 
             Console.WriteLine("Le pido generar 3 mas");
-            lista = generador.generarListaRndPoisson(3);
+            lista = generador.generarListaVA(3);
 
             foreach (var item in lista)
             {
@@ -204,7 +204,7 @@ namespace Simulacion
 
 
             Console.WriteLine("Le pido generar 1 mas");
-            lista = generador.generarListaRndPoisson(1);
+            lista = generador.generarListaVA(1);
 
             foreach (var item in lista)
             {
@@ -214,7 +214,7 @@ namespace Simulacion
             }
 
             Console.WriteLine("Le pido generar 1 mas");
-            lista = generador.generarListaRndPoisson(1);
+            lista = generador.generarListaVA(1);
 
             foreach (var item in lista)
             {

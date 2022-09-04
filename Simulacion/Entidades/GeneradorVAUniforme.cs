@@ -1,4 +1,5 @@
-﻿using Simulacion.Entidades.Randoms;
+﻿using Simulacion.Entidades.Interfaces;
+using Simulacion.Entidades.Randoms;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Simulacion.Entidades
 {
-    internal class GeneradorVAUniforme
+    internal class GeneradorVAUniforme : IGeneradorVA
     {
         private IGeneradorRandom generadorRnd;
         public double a { get; } // Limite Real inferior
@@ -24,7 +25,7 @@ namespace Simulacion.Entidades
             this.estadoActual = null;
         }
 
-        public LinkedList<VariableAleatoria> generarListaRndUniforme(int cantidad)
+        public LinkedList<VariableAleatoria> generarListaVA(int cantidad)
         {
             LinkedList<VariableAleatoria> lista = new LinkedList<VariableAleatoria>();
 
