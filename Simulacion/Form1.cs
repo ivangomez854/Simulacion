@@ -72,8 +72,8 @@ namespace Simulacion
 
             foreach(var item in lista)
             {
-                Console.WriteLine("VA: " + Math.Round(item.vaNormal, 4));
-                Console.WriteLine("Orden: " + item.orden);
+                Console.WriteLine("VA: " + Math.Round(item.ValorAleatorio, 4));
+                Console.WriteLine("Orden: " + item.Orden);
                 Console.WriteLine("......................");
             }
 
@@ -82,15 +82,15 @@ namespace Simulacion
 
             foreach (var item in lista)
             {
-                Console.WriteLine("VA: " + Math.Round(item.vaNormal, 4));
-                Console.WriteLine("Orden: " + item.orden);
+                Console.WriteLine("VA: " + Math.Round(item.ValorAleatorio, 4));
+                Console.WriteLine("Orden: " + item.Orden);
                 Console.WriteLine("......................");
             }
 
             Console.WriteLine("Le pido el estado actual");
             var estado = generador.ObtenerEstadoActual();
-            Console.WriteLine("VA: " + Math.Round(estado.vaNormal, 4));
-            Console.WriteLine("Orden: " + estado.orden);
+            Console.WriteLine("VA: " + Math.Round(estado.ValorAleatorio, 4));
+            Console.WriteLine("Orden: " + estado.Orden);
             Console.WriteLine("......................");
 
 
@@ -100,8 +100,8 @@ namespace Simulacion
 
             foreach (var item in lista)
             {
-                Console.WriteLine("VA: " + Math.Round(item.vaNormal, 4));
-                Console.WriteLine("Orden: " + item.orden);
+                Console.WriteLine("VA: " + Math.Round(item.ValorAleatorio, 4));
+                Console.WriteLine("Orden: " + item.Orden);
                 Console.WriteLine("......................");
             }
 
@@ -110,8 +110,116 @@ namespace Simulacion
 
             foreach (var item in lista)
             {
-                Console.WriteLine("VA: " + Math.Round(item.vaNormal, 4));
-                Console.WriteLine("Orden: " + item.orden);
+                Console.WriteLine("VA: " + Math.Round(item.ValorAleatorio, 4));
+                Console.WriteLine("Orden: " + item.Orden);
+                Console.WriteLine("......................");
+            }
+        }
+
+        private void btnUniforme_Click(object sender, EventArgs e)
+        {
+            var rnd = new MetodoCongruencialMixto(15, 0, 1024, 16);
+
+            var generador = new GeneradorVAUniforme(rnd, 2, 12);
+
+            var lista = generador.generarListaRndUniforme(31);
+
+            foreach (var item in lista)
+            {
+                Console.WriteLine("VA: " + Math.Round(item.ValorAleatorio, 4));
+                Console.WriteLine("Orden: " + item.Orden);
+                Console.WriteLine("......................");
+            }
+
+            Console.WriteLine("Le pido generar 3 mas");
+            lista = generador.generarListaRndUniforme(3);
+
+            foreach (var item in lista)
+            {
+                Console.WriteLine("VA: " + Math.Round(item.ValorAleatorio, 4));
+                Console.WriteLine("Orden: " + item.Orden);
+                Console.WriteLine("......................");
+            }
+
+            Console.WriteLine("Le pido el estado actual");
+            var estado = generador.ObtenerEstadoActual();
+            Console.WriteLine("VA: " + Math.Round(estado.ValorAleatorio, 4));
+            Console.WriteLine("Orden: " + estado.Orden);
+            Console.WriteLine("......................");
+
+
+
+            Console.WriteLine("Le pido generar 1 mas");
+            lista = generador.generarListaRndUniforme(1);
+
+            foreach (var item in lista)
+            {
+                Console.WriteLine("VA: " + Math.Round(item.ValorAleatorio, 4));
+                Console.WriteLine("Orden: " + item.Orden);
+                Console.WriteLine("......................");
+            }
+
+            Console.WriteLine("Le pido generar 1 mas");
+            lista = generador.generarListaRndUniforme(1);
+
+            foreach (var item in lista)
+            {
+                Console.WriteLine("VA: " + Math.Round(item.ValorAleatorio, 4));
+                Console.WriteLine("Orden: " + item.Orden);
+                Console.WriteLine("......................");
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            var rnd = new MetodoCongruencialMixto(23, 601, 1024, 16);
+
+            var generador = new GeneradorVAPoisson(rnd, 12);
+
+            var lista = generador.generarListaRndPoisson(31);
+
+            foreach (var item in lista)
+            {
+                Console.WriteLine("VA: " + Math.Round(item.ValorAleatorio, 4));
+                Console.WriteLine("Orden: " + item.Orden);
+                Console.WriteLine("......................");
+            }
+
+            Console.WriteLine("Le pido generar 3 mas");
+            lista = generador.generarListaRndPoisson(3);
+
+            foreach (var item in lista)
+            {
+                Console.WriteLine("VA: " + Math.Round(item.ValorAleatorio, 4));
+                Console.WriteLine("Orden: " + item.Orden);
+                Console.WriteLine("......................");
+            }
+
+            Console.WriteLine("Le pido el estado actual");
+            var estado = generador.ObtenerEstadoActual();
+            Console.WriteLine("VA: " + Math.Round(estado.ValorAleatorio, 4));
+            Console.WriteLine("Orden: " + estado.Orden);
+            Console.WriteLine("......................");
+
+
+
+            Console.WriteLine("Le pido generar 1 mas");
+            lista = generador.generarListaRndPoisson(1);
+
+            foreach (var item in lista)
+            {
+                Console.WriteLine("VA: " + Math.Round(item.ValorAleatorio, 4));
+                Console.WriteLine("Orden: " + item.Orden);
+                Console.WriteLine("......................");
+            }
+
+            Console.WriteLine("Le pido generar 1 mas");
+            lista = generador.generarListaRndPoisson(1);
+
+            foreach (var item in lista)
+            {
+                Console.WriteLine("VA: " + Math.Round(item.ValorAleatorio, 4));
+                Console.WriteLine("Orden: " + item.Orden);
                 Console.WriteLine("......................");
             }
         }

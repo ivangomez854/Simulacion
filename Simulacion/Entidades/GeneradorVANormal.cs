@@ -13,8 +13,8 @@ namespace Simulacion.Entidades
         public double media { get; }
         public double desviacion { get; }
 
-        private VariableAleatoriaNormal vaSinUsar; //Me avisa que tengo una variable aleatoria sin usar
-        private VariableAleatoriaNormal estadoActual;
+        private VariableAleatoria vaSinUsar; //Me avisa que tengo una variable aleatoria sin usar
+        private VariableAleatoria estadoActual;
 
 
         public GeneradorVANormal(IGeneradorRandom generadorRnd, double media, double desviacion)
@@ -26,9 +26,9 @@ namespace Simulacion.Entidades
             this.vaSinUsar = null;
         }
 
-        public LinkedList<VariableAleatoriaNormal> generarListaRndNormal(int cantidad)
+        public LinkedList<VariableAleatoria> generarListaRndNormal(int cantidad)
         {
-            LinkedList<VariableAleatoriaNormal> lista = new LinkedList<VariableAleatoriaNormal>();
+            LinkedList<VariableAleatoria> lista = new LinkedList<VariableAleatoria>();
             var laUltimaNoVa = false;
             var cantidadGenerar = cantidad;
 
@@ -58,16 +58,16 @@ namespace Simulacion.Entidades
                 var rnd1 = this.generadorRnd.obtenerProximoRandom();
                 var rnd2 = this.generadorRnd.obtenerProximoRandom();
                 //Calculo las proximas dos variables aleatorias
-                VariableAleatoriaNormal n1 = new VariableAleatoriaNormal();
-                VariableAleatoriaNormal n2 = new VariableAleatoriaNormal();
-                n1.rnd1 = rnd1.Item2;
-                n1.rnd2 = rnd2.Item2;
-                n1.orden = rnd1.Item1;
-                n1.vaNormal = Math.Sqrt(-2 * Math.Log(rnd1.Item2)) * Math.Cos(2 * Math.PI * rnd2.Item2) * this.desviacion + this.media;
-                n2.rnd1 = rnd1.Item2;
-                n2.rnd2 = rnd2.Item2;
-                n2.orden = rnd2.Item1;
-                n2.vaNormal = Math.Sqrt(-2 * Math.Log(rnd1.Item2)) * Math.Sin(2 * Math.PI * rnd2.Item2) * this.desviacion + this.media;
+                VariableAleatoria n1 = new VariableAleatoria();
+                VariableAleatoria n2 = new VariableAleatoria();
+                n1.Rnd1 = rnd1.Item2;
+                n1.Rnd2 = rnd2.Item2;
+                n1.Orden = rnd1.Item1;
+                n1.ValorAleatorio = Math.Sqrt(-2 * Math.Log(rnd1.Item2)) * Math.Cos(2 * Math.PI * rnd2.Item2) * this.desviacion + this.media;
+                n2.Rnd1 = rnd1.Item2;
+                n2.Rnd2 = rnd2.Item2;
+                n2.Orden = rnd2.Item1;
+                n2.ValorAleatorio = Math.Sqrt(-2 * Math.Log(rnd1.Item2)) * Math.Sin(2 * Math.PI * rnd2.Item2) * this.desviacion + this.media;
                 // Cargo las variables aleatorias en la lista
                 lista.AddLast(n1);
                 lista.AddLast(n2);
@@ -83,7 +83,7 @@ namespace Simulacion.Entidades
             return lista;
         }
 
-        public VariableAleatoriaNormal ObtenerEstadoActual()
+        public VariableAleatoria ObtenerEstadoActual()
         {
             return this.estadoActual;
         }

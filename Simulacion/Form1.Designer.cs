@@ -30,6 +30,8 @@
         {
             this.button1 = new System.Windows.Forms.Button();
             this.btnVANormal = new System.Windows.Forms.Button();
+            this.btnUniforme = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button1
@@ -52,11 +54,33 @@
             this.btnVANormal.UseVisualStyleBackColor = true;
             this.btnVANormal.Click += new System.EventHandler(this.btnVANormal_Click);
             // 
+            // btnUniforme
+            // 
+            this.btnUniforme.Location = new System.Drawing.Point(317, 174);
+            this.btnUniforme.Name = "btnUniforme";
+            this.btnUniforme.Size = new System.Drawing.Size(114, 23);
+            this.btnUniforme.TabIndex = 2;
+            this.btnUniforme.Text = "Simular Uniforme";
+            this.btnUniforme.UseVisualStyleBackColor = true;
+            this.btnUniforme.Click += new System.EventHandler(this.btnUniforme_Click);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(348, 363);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(187, 23);
+            this.button2.TabIndex = 3;
+            this.button2.Text = "Simular Poisson";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btnUniforme);
             this.Controls.Add(this.btnVANormal);
             this.Controls.Add(this.button1);
             this.Name = "Form1";
@@ -69,6 +93,8 @@
 
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btnVANormal;
+        private System.Windows.Forms.Button btnUniforme;
+        private System.Windows.Forms.Button button2;
     }
 }
 
