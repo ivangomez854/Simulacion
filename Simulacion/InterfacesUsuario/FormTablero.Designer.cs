@@ -62,14 +62,14 @@
             this.btnGenerar = new System.Windows.Forms.Button();
             this.btnReiniciar = new System.Windows.Forms.Button();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.progressBar = new System.Windows.Forms.ToolStripProgressBar();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.progressBar = new System.Windows.Forms.ToolStripProgressBar();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.orden = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.variable_aleatoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.gbRandom.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtSemilla)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtModulo)).BeginInit();
@@ -344,7 +344,6 @@
             // btnGenerar
             // 
             this.btnGenerar.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.btnGenerar.Enabled = false;
             this.btnGenerar.Image = ((System.Drawing.Image)(resources.GetObject("btnGenerar.Image")));
             this.btnGenerar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnGenerar.Location = new System.Drawing.Point(1272, 35);
@@ -355,6 +354,7 @@
             this.btnGenerar.Text = "Generar";
             this.btnGenerar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnGenerar.UseVisualStyleBackColor = false;
+            this.btnGenerar.Click += new System.EventHandler(this.btnGenerar_Click);
             // 
             // btnReiniciar
             // 
@@ -379,6 +379,11 @@
             this.statusStrip1.Size = new System.Drawing.Size(1401, 22);
             this.statusStrip1.TabIndex = 24;
             this.statusStrip1.Text = "statusStrip1";
+            // 
+            // progressBar
+            // 
+            this.progressBar.Name = "progressBar";
+            this.progressBar.Size = new System.Drawing.Size(100, 16);
             // 
             // flowLayoutPanel1
             // 
@@ -408,20 +413,6 @@
             this.tabPage1.Text = "Números generados";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // tabPage2
-            // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Size = new System.Drawing.Size(1361, 492);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Prueba de bondad";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // progressBar
-            // 
-            this.progressBar.Name = "progressBar";
-            this.progressBar.Size = new System.Drawing.Size(100, 16);
-            // 
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -447,6 +438,15 @@
             this.variable_aleatoria.HeaderText = "Variable aleatoria";
             this.variable_aleatoria.Name = "variable_aleatoria";
             this.variable_aleatoria.Width = 104;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Size = new System.Drawing.Size(1361, 492);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Prueba de bondad";
+            this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // FormTablero
             // 

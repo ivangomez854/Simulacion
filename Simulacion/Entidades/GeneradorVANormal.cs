@@ -5,6 +5,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Runtime.InteropServices;
+using System.ComponentModel;
 
 namespace Simulacion.Entidades
 {
@@ -27,9 +29,9 @@ namespace Simulacion.Entidades
             this.vaSinUsar = null;
         }
 
-        public LinkedList<VariableAleatoria> generarListaVA(int cantidad)
+        public LinkedList<VariableAleatoria> generarListaVA(double cantidad, [Optional] LinkedList<VariableAleatoria> listaCompletar)
         {
-            LinkedList<VariableAleatoria> lista = new LinkedList<VariableAleatoria>();
+            LinkedList<VariableAleatoria> lista = listaCompletar is null ? new LinkedList<VariableAleatoria>() : listaCompletar;
             var laUltimaNoVa = false;
             var cantidadGenerar = cantidad;
 

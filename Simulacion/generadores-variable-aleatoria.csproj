@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controladores\ControladorVA.cs" />
+    <Compile Include="Entidades\GeneradorVAExponencialNegativa.cs" />
     <Compile Include="Entidades\GeneradorVANormal.cs" />
     <Compile Include="Entidades\GeneradorVAPoisson.cs" />
     <Compile Include="Entidades\GeneradorVAUniforme.cs" />

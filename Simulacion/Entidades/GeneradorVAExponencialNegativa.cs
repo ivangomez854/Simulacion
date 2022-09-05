@@ -10,20 +10,24 @@ using System.Threading.Tasks;
 
 namespace Simulacion.Entidades
 {
-    internal class GeneradorVAUniforme : IGeneradorVA
+    internal class GeneradorVAExponencialNegativa : IGeneradorVA
     {
+
         private IGeneradorRandom generadorRnd;
-        public double a { get; } // Limite Real inferior
-        public double b { get; } // Limite Real superior
+
+        /// <summary>
+        /// Esta clase trabaja con el parametro Lamda.
+        /// En caso de contar con el parametro Media, inicializar con Lamda = 1/Media
+        /// </summary>
+        public double lamda { get; } // Limite Real inferior
 
         private VariableAleatoria estadoActual;
 
 
-        public GeneradorVAUniforme(IGeneradorRandom generadorRnd, double a, double b)
+        public GeneradorVAExponencialNegativa(IGeneradorRandom generadorRnd, double lamda)
         {
             this.generadorRnd = generadorRnd;
-            this.a = a;
-            this.b = b;
+            this.lamda = lamda;
             this.estadoActual = null;
         }
 
@@ -33,17 +37,17 @@ namespace Simulacion.Entidades
 
             // Inicio la generacion de variables aleatorias
 
-            for (int i = 1; i <= cantidad; i ++)
+            for (int i = 1; i <= cantidad; i++)
             {
                 // Pido un random
                 var rnd = this.generadorRnd.obtenerProximoRandom();
                 //Calculo la proxima variable aleatoria
-                VariableAleatoria n1 = new VariableAleatoria();
-                n1.Rnd1 = rnd.Item2;
-                n1.Orden = rnd.Item1;
-                n1.ValorAleatorio = this.a + rnd.Item2 * (this.b - this.a); 
-                // Cargo las variables aleatorias en la lista
-                lista.AddLast(n1);
+                VariableAleatoria va = new VariableAleatoria();
+                va.Rnd1 = rnd.Item2;
+                va.Orden = rnd.Item1;
+                va.ValorAleatorio = (-1 / lamda) * Math.Log(1 - rnd.Item2);
+                // Cargo la variable aleatoria en la lista
+                lista.AddLast(va);
             }
             // Antes de retornar actualizo el estado actual
             this.estadoActual = lista.Last();

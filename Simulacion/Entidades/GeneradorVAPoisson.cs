@@ -2,7 +2,9 @@
 using Simulacion.Entidades.Randoms;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -24,9 +26,9 @@ namespace Simulacion.Entidades
             this.estadoActual.Orden = 0;
         }
 
-        public LinkedList<VariableAleatoria> generarListaVA(int cantidad)
+        public LinkedList<VariableAleatoria> generarListaVA(double cantidad, [Optional] LinkedList<VariableAleatoria> listaCompletar)
         {
-            LinkedList<VariableAleatoria> lista = new LinkedList<VariableAleatoria>();
+            LinkedList<VariableAleatoria> lista = listaCompletar is null ? new LinkedList<VariableAleatoria>() : listaCompletar;
             var a = Math.Exp(-this.lamda);
 
             // Inicio la generacion de variables aleatorias
