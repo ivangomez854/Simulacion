@@ -30,6 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormTablero));
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.gbRandom = new System.Windows.Forms.GroupBox();
             this.txtSemilla = new System.Windows.Forms.NumericUpDown();
             this.txtModulo = new System.Windows.Forms.NumericUpDown();
@@ -66,10 +69,26 @@
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.gbChiCuadrado = new System.Windows.Forms.GroupBox();
+            this.tbxResultadoChiCuadrado = new System.Windows.Forms.TextBox();
+            this.lblChiCuadradoTabulado = new System.Windows.Forms.Label();
+            this.txtChiCuadradoTabulado = new System.Windows.Forms.NumericUpDown();
+            this.lblChiCuadradoCalculado = new System.Windows.Forms.Label();
+            this.txtChiCuadradoCalculado = new System.Windows.Forms.NumericUpDown();
+            this.pnlFrecuenciaEsperada = new System.Windows.Forms.Panel();
+            this.pnlFrecuenciaObservada = new System.Windows.Forms.Panel();
+            this.lblFrecuenciaObservada = new System.Windows.Forms.Label();
+            this.lblFrecuenciaEsperada = new System.Windows.Forms.Label();
+            this.pnlGrafico = new System.Windows.Forms.Panel();
+            this.chartIntervalos = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.gbIntervalos = new System.Windows.Forms.GroupBox();
+            this.lblCantidadIntervalos = new System.Windows.Forms.Label();
+            this.btnGenerarIntervalos = new System.Windows.Forms.Button();
+            this.txtCantidadIntervalos = new System.Windows.Forms.NumericUpDown();
+            this.btnAutocalcular = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.orden = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.variable_aleatoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.gbRandom.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtSemilla)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtModulo)).BeginInit();
@@ -87,6 +106,13 @@
             this.statusStrip1.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            this.gbChiCuadrado.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtChiCuadradoTabulado)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtChiCuadradoCalculado)).BeginInit();
+            this.pnlGrafico.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chartIntervalos)).BeginInit();
+            this.gbIntervalos.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCantidadIntervalos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -179,6 +205,7 @@
             this.cboMetodoRandom.Name = "cboMetodoRandom";
             this.cboMetodoRandom.Size = new System.Drawing.Size(160, 21);
             this.cboMetodoRandom.TabIndex = 0;
+            this.cboMetodoRandom.SelectedValueChanged += new System.EventHandler(this.cboMetodoRandom_SelectedValueChanged);
             // 
             // gbDistribucion
             // 
@@ -206,6 +233,11 @@
             this.txtLamda.Name = "txtLamda";
             this.txtLamda.Size = new System.Drawing.Size(90, 20);
             this.txtLamda.TabIndex = 20;
+            this.txtLamda.Value = new decimal(new int[] {
+            50,
+            0,
+            0,
+            0});
             // 
             // lblLamda
             // 
@@ -222,6 +254,11 @@
             this.txtDesvEst.Name = "txtDesvEst";
             this.txtDesvEst.Size = new System.Drawing.Size(90, 20);
             this.txtDesvEst.TabIndex = 17;
+            this.txtDesvEst.Value = new decimal(new int[] {
+            2,
+            0,
+            0,
+            0});
             // 
             // txtMedia
             // 
@@ -229,6 +266,11 @@
             this.txtMedia.Name = "txtMedia";
             this.txtMedia.Size = new System.Drawing.Size(90, 20);
             this.txtMedia.TabIndex = 16;
+            this.txtMedia.Value = new decimal(new int[] {
+            12,
+            0,
+            0,
+            0});
             // 
             // txtLimB
             // 
@@ -236,6 +278,11 @@
             this.txtLimB.Name = "txtLimB";
             this.txtLimB.Size = new System.Drawing.Size(90, 20);
             this.txtLimB.TabIndex = 15;
+            this.txtLimB.Value = new decimal(new int[] {
+            20,
+            0,
+            0,
+            0});
             // 
             // txtLimA
             // 
@@ -243,6 +290,11 @@
             this.txtLimA.Name = "txtLimA";
             this.txtLimA.Size = new System.Drawing.Size(90, 20);
             this.txtLimA.TabIndex = 14;
+            this.txtLimA.Value = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
             // 
             // lblDesv
             // 
@@ -287,6 +339,7 @@
             this.cboDistribuciones.Name = "cboDistribuciones";
             this.cboDistribuciones.Size = new System.Drawing.Size(160, 21);
             this.cboDistribuciones.TabIndex = 0;
+            this.cboDistribuciones.SelectedValueChanged += new System.EventHandler(this.cboDistribuciones_SelectedValueChanged);
             // 
             // contextMenuStrip1
             // 
@@ -307,7 +360,7 @@
             this.menu});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1401, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1370, 24);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -337,9 +390,24 @@
             // txtCantidad
             // 
             this.txtCantidad.Location = new System.Drawing.Point(1143, 103);
+            this.txtCantidad.Maximum = new decimal(new int[] {
+            10000000,
+            0,
+            0,
+            0});
+            this.txtCantidad.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.txtCantidad.Name = "txtCantidad";
             this.txtCantidad.Size = new System.Drawing.Size(118, 20);
             this.txtCantidad.TabIndex = 21;
+            this.txtCantidad.Value = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
             // 
             // btnGenerar
             // 
@@ -358,7 +426,6 @@
             // 
             // btnReiniciar
             // 
-            this.btnReiniciar.Enabled = false;
             this.btnReiniciar.Image = ((System.Drawing.Image)(resources.GetObject("btnReiniciar.Image")));
             this.btnReiniciar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnReiniciar.Location = new System.Drawing.Point(1272, 89);
@@ -369,6 +436,7 @@
             this.btnReiniciar.Text = "Reiniciar";
             this.btnReiniciar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnReiniciar.UseVisualStyleBackColor = true;
+            this.btnReiniciar.Click += new System.EventHandler(this.btnReiniciar_Click);
             // 
             // statusStrip1
             // 
@@ -376,7 +444,7 @@
             this.progressBar});
             this.statusStrip1.Location = new System.Drawing.Point(0, 663);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(1401, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(1370, 22);
             this.statusStrip1.TabIndex = 24;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -395,7 +463,6 @@
             // tabControl
             // 
             this.tabControl.Controls.Add(this.tabPage1);
-            this.tabControl.Controls.Add(this.tabPage2);
             this.tabControl.Location = new System.Drawing.Point(10, 139);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
@@ -404,6 +471,13 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.gbChiCuadrado);
+            this.tabPage1.Controls.Add(this.pnlFrecuenciaEsperada);
+            this.tabPage1.Controls.Add(this.pnlFrecuenciaObservada);
+            this.tabPage1.Controls.Add(this.lblFrecuenciaObservada);
+            this.tabPage1.Controls.Add(this.lblFrecuenciaEsperada);
+            this.tabPage1.Controls.Add(this.pnlGrafico);
+            this.tabPage1.Controls.Add(this.gbIntervalos);
             this.tabPage1.Controls.Add(this.dataGridView1);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
@@ -413,46 +487,255 @@
             this.tabPage1.Text = "Números generados";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // gbChiCuadrado
+            // 
+            this.gbChiCuadrado.Controls.Add(this.tbxResultadoChiCuadrado);
+            this.gbChiCuadrado.Controls.Add(this.lblChiCuadradoTabulado);
+            this.gbChiCuadrado.Controls.Add(this.txtChiCuadradoTabulado);
+            this.gbChiCuadrado.Controls.Add(this.lblChiCuadradoCalculado);
+            this.gbChiCuadrado.Controls.Add(this.txtChiCuadradoCalculado);
+            this.gbChiCuadrado.Location = new System.Drawing.Point(775, 6);
+            this.gbChiCuadrado.Name = "gbChiCuadrado";
+            this.gbChiCuadrado.Size = new System.Drawing.Size(580, 74);
+            this.gbChiCuadrado.TabIndex = 27;
+            this.gbChiCuadrado.TabStop = false;
+            this.gbChiCuadrado.Text = "Prueba Chi Cuadrado";
+            this.gbChiCuadrado.Visible = false;
+            // 
+            // tbxResultadoChiCuadrado
+            // 
+            this.tbxResultadoChiCuadrado.Enabled = false;
+            this.tbxResultadoChiCuadrado.Location = new System.Drawing.Point(276, 11);
+            this.tbxResultadoChiCuadrado.Multiline = true;
+            this.tbxResultadoChiCuadrado.Name = "tbxResultadoChiCuadrado";
+            this.tbxResultadoChiCuadrado.Size = new System.Drawing.Size(298, 50);
+            this.tbxResultadoChiCuadrado.TabIndex = 26;
+            // 
+            // lblChiCuadradoTabulado
+            // 
+            this.lblChiCuadradoTabulado.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
+            this.lblChiCuadradoTabulado.AutoSize = true;
+            this.lblChiCuadradoTabulado.Location = new System.Drawing.Point(151, 25);
+            this.lblChiCuadradoTabulado.Name = "lblChiCuadradoTabulado";
+            this.lblChiCuadradoTabulado.Size = new System.Drawing.Size(119, 13);
+            this.lblChiCuadradoTabulado.TabIndex = 24;
+            this.lblChiCuadradoTabulado.Text = "Chi Cuadrado Tabulado";
+            // 
+            // txtChiCuadradoTabulado
+            // 
+            this.txtChiCuadradoTabulado.Enabled = false;
+            this.txtChiCuadradoTabulado.Location = new System.Drawing.Point(154, 41);
+            this.txtChiCuadradoTabulado.Maximum = new decimal(new int[] {
+            3163,
+            0,
+            0,
+            0});
+            this.txtChiCuadradoTabulado.Name = "txtChiCuadradoTabulado";
+            this.txtChiCuadradoTabulado.Size = new System.Drawing.Size(118, 20);
+            this.txtChiCuadradoTabulado.TabIndex = 25;
+            // 
+            // lblChiCuadradoCalculado
+            // 
+            this.lblChiCuadradoCalculado.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
+            this.lblChiCuadradoCalculado.AutoSize = true;
+            this.lblChiCuadradoCalculado.Location = new System.Drawing.Point(6, 25);
+            this.lblChiCuadradoCalculado.Name = "lblChiCuadradoCalculado";
+            this.lblChiCuadradoCalculado.Size = new System.Drawing.Size(121, 13);
+            this.lblChiCuadradoCalculado.TabIndex = 22;
+            this.lblChiCuadradoCalculado.Text = "Chi Cuadrado Calculado";
+            // 
+            // txtChiCuadradoCalculado
+            // 
+            this.txtChiCuadradoCalculado.Enabled = false;
+            this.txtChiCuadradoCalculado.Location = new System.Drawing.Point(9, 41);
+            this.txtChiCuadradoCalculado.Maximum = new decimal(new int[] {
+            3163,
+            0,
+            0,
+            0});
+            this.txtChiCuadradoCalculado.Name = "txtChiCuadradoCalculado";
+            this.txtChiCuadradoCalculado.Size = new System.Drawing.Size(118, 20);
+            this.txtChiCuadradoCalculado.TabIndex = 23;
+            // 
+            // pnlFrecuenciaEsperada
+            // 
+            this.pnlFrecuenciaEsperada.BackColor = System.Drawing.Color.Maroon;
+            this.pnlFrecuenciaEsperada.Location = new System.Drawing.Point(730, 44);
+            this.pnlFrecuenciaEsperada.Name = "pnlFrecuenciaEsperada";
+            this.pnlFrecuenciaEsperada.Size = new System.Drawing.Size(24, 23);
+            this.pnlFrecuenciaEsperada.TabIndex = 31;
+            this.pnlFrecuenciaEsperada.Visible = false;
+            // 
+            // pnlFrecuenciaObservada
+            // 
+            this.pnlFrecuenciaObservada.BackColor = System.Drawing.Color.Green;
+            this.pnlFrecuenciaObservada.Location = new System.Drawing.Point(730, 11);
+            this.pnlFrecuenciaObservada.Name = "pnlFrecuenciaObservada";
+            this.pnlFrecuenciaObservada.Size = new System.Drawing.Size(24, 23);
+            this.pnlFrecuenciaObservada.TabIndex = 30;
+            this.pnlFrecuenciaObservada.Visible = false;
+            // 
+            // lblFrecuenciaObservada
+            // 
+            this.lblFrecuenciaObservada.AutoSize = true;
+            this.lblFrecuenciaObservada.Location = new System.Drawing.Point(609, 17);
+            this.lblFrecuenciaObservada.Name = "lblFrecuenciaObservada";
+            this.lblFrecuenciaObservada.Size = new System.Drawing.Size(115, 13);
+            this.lblFrecuenciaObservada.TabIndex = 29;
+            this.lblFrecuenciaObservada.Text = "Frecuencia Observada";
+            this.lblFrecuenciaObservada.Visible = false;
+            // 
+            // lblFrecuenciaEsperada
+            // 
+            this.lblFrecuenciaEsperada.AutoSize = true;
+            this.lblFrecuenciaEsperada.Location = new System.Drawing.Point(609, 49);
+            this.lblFrecuenciaEsperada.Name = "lblFrecuenciaEsperada";
+            this.lblFrecuenciaEsperada.Size = new System.Drawing.Size(108, 13);
+            this.lblFrecuenciaEsperada.TabIndex = 28;
+            this.lblFrecuenciaEsperada.Text = "Frecuencia Esperada";
+            this.lblFrecuenciaEsperada.Visible = false;
+            // 
+            // pnlGrafico
+            // 
+            this.pnlGrafico.AutoScroll = true;
+            this.pnlGrafico.Controls.Add(this.chartIntervalos);
+            this.pnlGrafico.Location = new System.Drawing.Point(309, 86);
+            this.pnlGrafico.Name = "pnlGrafico";
+            this.pnlGrafico.Size = new System.Drawing.Size(1046, 400);
+            this.pnlGrafico.TabIndex = 27;
+            this.pnlGrafico.Visible = false;
+            // 
+            // chartIntervalos
+            // 
+            chartArea3.AxisX.Interval = 1D;
+            chartArea3.AxisX.Title = "Intervalo";
+            chartArea3.AxisX.ToolTip = "Intervalo";
+            chartArea3.AxisY.Title = "Frecuencia";
+            chartArea3.Name = "ChartArea1";
+            this.chartIntervalos.ChartAreas.Add(chartArea3);
+            this.chartIntervalos.Location = new System.Drawing.Point(3, 3);
+            this.chartIntervalos.Name = "chartIntervalos";
+            series5.ChartArea = "ChartArea1";
+            series5.Color = System.Drawing.Color.Green;
+            series5.IsVisibleInLegend = false;
+            series5.Name = "serieFrecuenciaObservada";
+            series6.ChartArea = "ChartArea1";
+            series6.Color = System.Drawing.Color.Maroon;
+            series6.IsVisibleInLegend = false;
+            series6.Name = "serieFrecuenciaEsperada";
+            this.chartIntervalos.Series.Add(series5);
+            this.chartIntervalos.Series.Add(series6);
+            this.chartIntervalos.Size = new System.Drawing.Size(568, 394);
+            this.chartIntervalos.TabIndex = 0;
+            this.chartIntervalos.Text = "chart1";
+            // 
+            // gbIntervalos
+            // 
+            this.gbIntervalos.Controls.Add(this.lblCantidadIntervalos);
+            this.gbIntervalos.Controls.Add(this.btnGenerarIntervalos);
+            this.gbIntervalos.Controls.Add(this.txtCantidadIntervalos);
+            this.gbIntervalos.Controls.Add(this.btnAutocalcular);
+            this.gbIntervalos.Location = new System.Drawing.Point(309, 6);
+            this.gbIntervalos.Name = "gbIntervalos";
+            this.gbIntervalos.Size = new System.Drawing.Size(294, 74);
+            this.gbIntervalos.TabIndex = 26;
+            this.gbIntervalos.TabStop = false;
+            this.gbIntervalos.Text = "Intervalos";
+            this.gbIntervalos.Visible = false;
+            // 
+            // lblCantidadIntervalos
+            // 
+            this.lblCantidadIntervalos.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
+            this.lblCantidadIntervalos.AutoSize = true;
+            this.lblCantidadIntervalos.Location = new System.Drawing.Point(6, 25);
+            this.lblCantidadIntervalos.Name = "lblCantidadIntervalos";
+            this.lblCantidadIntervalos.Size = new System.Drawing.Size(98, 13);
+            this.lblCantidadIntervalos.TabIndex = 22;
+            this.lblCantidadIntervalos.Text = "Cantidad Intervalos";
+            // 
+            // btnGenerarIntervalos
+            // 
+            this.btnGenerarIntervalos.Location = new System.Drawing.Point(214, 25);
+            this.btnGenerarIntervalos.Name = "btnGenerarIntervalos";
+            this.btnGenerarIntervalos.Size = new System.Drawing.Size(75, 36);
+            this.btnGenerarIntervalos.TabIndex = 25;
+            this.btnGenerarIntervalos.Text = "Generar";
+            this.btnGenerarIntervalos.UseVisualStyleBackColor = true;
+            this.btnGenerarIntervalos.Click += new System.EventHandler(this.btnGenerarIntervalos_Click);
+            // 
+            // txtCantidadIntervalos
+            // 
+            this.txtCantidadIntervalos.Location = new System.Drawing.Point(9, 41);
+            this.txtCantidadIntervalos.Maximum = new decimal(new int[] {
+            3163,
+            0,
+            0,
+            0});
+            this.txtCantidadIntervalos.Minimum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.txtCantidadIntervalos.Name = "txtCantidadIntervalos";
+            this.txtCantidadIntervalos.Size = new System.Drawing.Size(118, 20);
+            this.txtCantidadIntervalos.TabIndex = 23;
+            this.txtCantidadIntervalos.Value = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            // 
+            // btnAutocalcular
+            // 
+            this.btnAutocalcular.Location = new System.Drawing.Point(133, 25);
+            this.btnAutocalcular.Name = "btnAutocalcular";
+            this.btnAutocalcular.Size = new System.Drawing.Size(75, 36);
+            this.btnAutocalcular.TabIndex = 24;
+            this.btnAutocalcular.Text = "Autocalcular";
+            this.btnAutocalcular.UseVisualStyleBackColor = true;
+            this.btnAutocalcular.Click += new System.EventHandler(this.btnAutocalcular_Click);
+            // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AllowUserToResizeColumns = false;
+            this.dataGridView1.AllowUserToResizeRows = false;
+            this.dataGridView1.CausesValidation = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.orden,
             this.variable_aleatoria});
             this.dataGridView1.Location = new System.Drawing.Point(3, 6);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(300, 480);
             this.dataGridView1.TabIndex = 0;
             // 
             // orden
             // 
+            this.orden.DataPropertyName = "Orden";
             this.orden.Frozen = true;
             this.orden.HeaderText = "Nro. de orden";
             this.orden.Name = "orden";
+            this.orden.ReadOnly = true;
             this.orden.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
             // variable_aleatoria
             // 
             this.variable_aleatoria.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.variable_aleatoria.DataPropertyName = "ValorAleatorio";
             this.variable_aleatoria.Frozen = true;
             this.variable_aleatoria.HeaderText = "Variable aleatoria";
             this.variable_aleatoria.Name = "variable_aleatoria";
+            this.variable_aleatoria.ReadOnly = true;
             this.variable_aleatoria.Width = 104;
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Size = new System.Drawing.Size(1361, 492);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Prueba de bondad";
-            this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // FormTablero
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1401, 685);
+            this.ClientSize = new System.Drawing.Size(1370, 685);
             this.Controls.Add(this.tabControl);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.statusStrip1);
@@ -488,6 +771,16 @@
             this.statusStrip1.PerformLayout();
             this.tabControl.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
+            this.gbChiCuadrado.ResumeLayout(false);
+            this.gbChiCuadrado.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtChiCuadradoTabulado)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtChiCuadradoCalculado)).EndInit();
+            this.pnlGrafico.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.chartIntervalos)).EndInit();
+            this.gbIntervalos.ResumeLayout(false);
+            this.gbIntervalos.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCantidadIntervalos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -531,10 +824,26 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.TabControl tabControl;
         private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.ToolStripProgressBar progressBar;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button btnAutocalcular;
+        private System.Windows.Forms.NumericUpDown txtCantidadIntervalos;
+        private System.Windows.Forms.Label lblCantidadIntervalos;
+        private System.Windows.Forms.Panel pnlGrafico;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chartIntervalos;
+        private System.Windows.Forms.GroupBox gbIntervalos;
+        private System.Windows.Forms.Button btnGenerarIntervalos;
+        private System.Windows.Forms.Panel pnlFrecuenciaEsperada;
+        private System.Windows.Forms.Panel pnlFrecuenciaObservada;
+        private System.Windows.Forms.Label lblFrecuenciaObservada;
+        private System.Windows.Forms.Label lblFrecuenciaEsperada;
+        private System.Windows.Forms.GroupBox gbChiCuadrado;
+        private System.Windows.Forms.Label lblChiCuadradoTabulado;
+        private System.Windows.Forms.NumericUpDown txtChiCuadradoTabulado;
+        private System.Windows.Forms.Label lblChiCuadradoCalculado;
+        private System.Windows.Forms.NumericUpDown txtChiCuadradoCalculado;
         private System.Windows.Forms.DataGridViewTextBoxColumn orden;
         private System.Windows.Forms.DataGridViewTextBoxColumn variable_aleatoria;
+        private System.Windows.Forms.TextBox tbxResultadoChiCuadrado;
     }
 }
