@@ -29,21 +29,21 @@ namespace Simulacion.Entidades
             this.vaSinUsar = null;
         }
 
-        public LinkedList<VariableAleatoria> generarListaVA(double cantidad, [Optional] LinkedList<VariableAleatoria> listaCompletar)
+        public BindingList<VariableAleatoria> generarListaVA(double cantidad, [Optional] BindingList<VariableAleatoria> listaCompletar)
         {
-            LinkedList<VariableAleatoria> lista = listaCompletar is null ? new LinkedList<VariableAleatoria>() : listaCompletar;
+            BindingList<VariableAleatoria> lista = listaCompletar is null ? new BindingList<VariableAleatoria>() : listaCompletar;
             var laUltimaNoVa = false;
             var cantidadGenerar = cantidad;
 
             //Chequeo si hay random pendiente de usar
             if (this.vaSinUsar != null && (cantidad - 1) == 0 ) {
-                lista.AddLast(this.vaSinUsar);
+                lista.Add(this.vaSinUsar);
                 this.estadoActual = this.vaSinUsar; // Actualizo el estado actual
                 this.vaSinUsar = null;
                 return lista;
             } else if (this.vaSinUsar != null && (cantidad - 1) > 0)
             {
-                lista.AddLast(this.vaSinUsar);
+                lista.Add(this.vaSinUsar);
                 this.vaSinUsar = null;
                 cantidadGenerar--;
                 // Aca no actualizo el estado actual porque con la validacion ya se que falta generar mas variables
@@ -72,14 +72,14 @@ namespace Simulacion.Entidades
                 n2.Orden = rnd2.Item1;
                 n2.ValorAleatorio = Math.Sqrt(-2 * Math.Log(rnd1.Item2)) * Math.Sin(2 * Math.PI * rnd2.Item2) * this.desviacion + this.media;
                 // Cargo las variables aleatorias en la lista
-                lista.AddLast(n1);
-                lista.AddLast(n2);
+                lista.Add(n1);
+                lista.Add(n2);
             }
             // Si la ultima no va la saco
             if(laUltimaNoVa)
             {
                 vaSinUsar = lista.Last();
-                lista.RemoveLast();
+                lista.RemoveAt(lista.Count-1);
             }
             // Antes de retornar actualizo el estado actual
             this.estadoActual = lista.Last();

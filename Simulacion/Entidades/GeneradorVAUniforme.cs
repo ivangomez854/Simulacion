@@ -27,9 +27,9 @@ namespace Simulacion.Entidades
             this.estadoActual = null;
         }
 
-        public LinkedList<VariableAleatoria> generarListaVA(double cantidad, [Optional] LinkedList<VariableAleatoria> listaCompletar)
+        public BindingList<VariableAleatoria> generarListaVA(double cantidad, [Optional] BindingList<VariableAleatoria> listaCompletar)
         {
-            LinkedList<VariableAleatoria> lista = listaCompletar is null ? new LinkedList<VariableAleatoria>() : listaCompletar;
+            BindingList<VariableAleatoria> lista = listaCompletar is null ? new BindingList<VariableAleatoria>() : listaCompletar;
 
             // Inicio la generacion de variables aleatorias
 
@@ -43,7 +43,7 @@ namespace Simulacion.Entidades
                 n1.Orden = rnd.Item1;
                 n1.ValorAleatorio = this.a + rnd.Item2 * (this.b - this.a); 
                 // Cargo las variables aleatorias en la lista
-                lista.AddLast(n1);
+                lista.Add(n1);
             }
             // Antes de retornar actualizo el estado actual
             this.estadoActual = lista.Last();

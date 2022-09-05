@@ -4,6 +4,7 @@ using Simulacion.Entidades.Randoms;
 using Simulacion.InterfacesUsuario;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -27,9 +28,9 @@ namespace Simulacion.Controladores
         /// <param name="cantidad"></param>
         /// <param name="progressBar"></param>
         /// <returns></returns>
-        public LinkedList<VariableAleatoria> generarListadoVA(double cantidad, ToolStripProgressBar progressBar)
+        public BindingList<VariableAleatoria> generarListadoVA(double cantidad, ToolStripProgressBar progressBar)
         {
-            LinkedList<VariableAleatoria> lista = new LinkedList<VariableAleatoria>();
+            BindingList<VariableAleatoria> lista = new BindingList<VariableAleatoria>();
 
 
             int cantidadSegmentosBusqueda = this.CalcularSegmentosBusqueda(cantidad);

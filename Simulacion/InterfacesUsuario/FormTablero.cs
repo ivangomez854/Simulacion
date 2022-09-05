@@ -133,7 +133,7 @@ namespace Simulacion.InterfacesUsuario
 
             var listita = controller.generarListadoVA(10000000d, this.progressBar);
 
-            Console.WriteLine(listita.Last.Value.ValorAleatorio + " VA/ORDEN " + listita.Last.Value.Orden);
+            Console.WriteLine(listita.Last().ValorAleatorio + " VA/ORDEN " + listita.Last().Orden);
 
             this.progressBar.Value = 0;
         }

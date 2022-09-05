@@ -17,7 +17,7 @@ namespace Simulacion.Entidades.Interfaces
         /// <param name="listaCompletar">Lista opcional. Si se recibe una lista de variables aleatorias, las nuevas variables se agregan al final de la misma.
         /// Esto permite procesar grandes volumenes de generacion por segmentos.</param>
         /// <returns></returns>
-        LinkedList<VariableAleatoria> generarListaVA(double cantidad, [Optional] LinkedList<VariableAleatoria> listaCompletar);
+        BindingList<VariableAleatoria> generarListaVA(double cantidad, [Optional] BindingList<VariableAleatoria> listaCompletar);
         /// <summary>
         /// Metodo que retorna la ultima variable aleatoria generada.
         /// </summary>
