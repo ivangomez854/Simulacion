@@ -44,7 +44,7 @@ namespace Simulacion.Entidades
                     p = p * rnd.Item2;
                     x++;
                 }
-                while (p >= a);
+                while (p > a);
                 
                 // La X resultante al final del ciclo es la VA Poisson
                 VariableAleatoria n1 = new VariableAleatoria();
