@@ -69,6 +69,32 @@ namespace Simulacion.Entidades.Utiles
             return this.ObtenerListaEntreLimites(this.actualInferior, this.actualSuperior);
         }
 
+        public BindingList<VariableAleatoria> BuscarPaginaXIndice(int indice)
+        {
+            if (indice < 0 || indice > this.lista.Count)
+            {
+                return null;
+            }
+
+            for(var i = 1; i <= this.cantidadPaginas; i++)
+            {
+                if (indice <= i*this.amplitud)
+                {
+                    this.paginaActual = i;
+                    this.actualInferior = (i - 1) * this.amplitud;
+                    this.actualSuperior = this.paginaActual * amplitud <= this.lista.Count ? this.paginaActual * this.amplitud : this.lista.Count - 1;
+
+                    return this.ObtenerListaEntreLimites(this.actualInferior, this.actualSuperior);
+                }
+            }
+            
+            this.paginaActual--;
+            this.actualInferior = (this.paginaActual - 1) * this.amplitud;
+            this.actualSuperior = this.paginaActual * amplitud <= this.lista.Count ? this.paginaActual * this.amplitud : this.lista.Count - 1;
+
+            return this.ObtenerListaEntreLimites(this.actualInferior, this.actualSuperior);
+        }
+
         private int CalcularCantidadPaginas(int cantidadElementos, int amplitud)
         {
             int siguienteEntero = (int)Math.Truncate((double)(cantidadElementos / amplitud)) + 1;

@@ -30,9 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormTablero));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series9 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series10 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.gbRandom = new System.Windows.Forms.GroupBox();
             this.txtSemilla = new System.Windows.Forms.NumericUpDown();
             this.txtModulo = new System.Windows.Forms.NumericUpDown();
@@ -89,6 +89,12 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.orden = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.variable_aleatoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnPrimeraPagina = new System.Windows.Forms.Button();
+            this.btnUltimaPagina = new System.Windows.Forms.Button();
+            this.btnPaginaSiguiente = new System.Windows.Forms.Button();
+            this.btnPaginaAnterior = new System.Windows.Forms.Button();
+            this.txtBuscarPagina = new System.Windows.Forms.NumericUpDown();
+            this.btnBuscarPagina = new System.Windows.Forms.Button();
             this.gbRandom.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtSemilla)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtModulo)).BeginInit();
@@ -114,6 +120,7 @@
             this.gbIntervalos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtCantidadIntervalos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBuscarPagina)).BeginInit();
             this.SuspendLayout();
             // 
             // gbRandom
@@ -471,6 +478,12 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.btnBuscarPagina);
+            this.tabPage1.Controls.Add(this.txtBuscarPagina);
+            this.tabPage1.Controls.Add(this.btnPaginaAnterior);
+            this.tabPage1.Controls.Add(this.btnPaginaSiguiente);
+            this.tabPage1.Controls.Add(this.btnUltimaPagina);
+            this.tabPage1.Controls.Add(this.btnPrimeraPagina);
             this.tabPage1.Controls.Add(this.gbChiCuadrado);
             this.tabPage1.Controls.Add(this.pnlFrecuenciaEsperada);
             this.tabPage1.Controls.Add(this.pnlFrecuenciaObservada);
@@ -607,24 +620,24 @@
             // 
             // chartIntervalos
             // 
-            chartArea3.AxisX.Interval = 1D;
-            chartArea3.AxisX.Title = "Intervalo";
-            chartArea3.AxisX.ToolTip = "Intervalo";
-            chartArea3.AxisY.Title = "Frecuencia";
-            chartArea3.Name = "ChartArea1";
-            this.chartIntervalos.ChartAreas.Add(chartArea3);
+            chartArea5.AxisX.Interval = 1D;
+            chartArea5.AxisX.Title = "Intervalo";
+            chartArea5.AxisX.ToolTip = "Intervalo";
+            chartArea5.AxisY.Title = "Frecuencia";
+            chartArea5.Name = "ChartArea1";
+            this.chartIntervalos.ChartAreas.Add(chartArea5);
             this.chartIntervalos.Location = new System.Drawing.Point(3, 3);
             this.chartIntervalos.Name = "chartIntervalos";
-            series5.ChartArea = "ChartArea1";
-            series5.Color = System.Drawing.Color.Green;
-            series5.IsVisibleInLegend = false;
-            series5.Name = "serieFrecuenciaObservada";
-            series6.ChartArea = "ChartArea1";
-            series6.Color = System.Drawing.Color.Maroon;
-            series6.IsVisibleInLegend = false;
-            series6.Name = "serieFrecuenciaEsperada";
-            this.chartIntervalos.Series.Add(series5);
-            this.chartIntervalos.Series.Add(series6);
+            series9.ChartArea = "ChartArea1";
+            series9.Color = System.Drawing.Color.Green;
+            series9.IsVisibleInLegend = false;
+            series9.Name = "serieFrecuenciaObservada";
+            series10.ChartArea = "ChartArea1";
+            series10.Color = System.Drawing.Color.Maroon;
+            series10.IsVisibleInLegend = false;
+            series10.Name = "serieFrecuenciaEsperada";
+            this.chartIntervalos.Series.Add(series9);
+            this.chartIntervalos.Series.Add(series10);
             this.chartIntervalos.Size = new System.Drawing.Size(568, 394);
             this.chartIntervalos.TabIndex = 0;
             this.chartIntervalos.Text = "chart1";
@@ -709,7 +722,7 @@
             this.dataGridView1.Location = new System.Drawing.Point(3, 6);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(300, 480);
+            this.dataGridView1.Size = new System.Drawing.Size(300, 451);
             this.dataGridView1.TabIndex = 0;
             // 
             // orden
@@ -730,6 +743,63 @@
             this.variable_aleatoria.Name = "variable_aleatoria";
             this.variable_aleatoria.ReadOnly = true;
             this.variable_aleatoria.Width = 104;
+            // 
+            // btnPrimeraPagina
+            // 
+            this.btnPrimeraPagina.Location = new System.Drawing.Point(5, 463);
+            this.btnPrimeraPagina.Name = "btnPrimeraPagina";
+            this.btnPrimeraPagina.Size = new System.Drawing.Size(30, 23);
+            this.btnPrimeraPagina.TabIndex = 32;
+            this.btnPrimeraPagina.Text = "<<";
+            this.btnPrimeraPagina.UseVisualStyleBackColor = true;
+            this.btnPrimeraPagina.Click += new System.EventHandler(this.btnPrimeraPagina_Click);
+            // 
+            // btnUltimaPagina
+            // 
+            this.btnUltimaPagina.Location = new System.Drawing.Point(113, 463);
+            this.btnUltimaPagina.Name = "btnUltimaPagina";
+            this.btnUltimaPagina.Size = new System.Drawing.Size(30, 23);
+            this.btnUltimaPagina.TabIndex = 33;
+            this.btnUltimaPagina.Text = ">>";
+            this.btnUltimaPagina.UseVisualStyleBackColor = true;
+            this.btnUltimaPagina.Click += new System.EventHandler(this.btnUltimaPagina_Click);
+            // 
+            // btnPaginaSiguiente
+            // 
+            this.btnPaginaSiguiente.Location = new System.Drawing.Point(77, 463);
+            this.btnPaginaSiguiente.Name = "btnPaginaSiguiente";
+            this.btnPaginaSiguiente.Size = new System.Drawing.Size(30, 23);
+            this.btnPaginaSiguiente.TabIndex = 34;
+            this.btnPaginaSiguiente.Text = ">";
+            this.btnPaginaSiguiente.UseVisualStyleBackColor = true;
+            this.btnPaginaSiguiente.Click += new System.EventHandler(this.btnPaginaSiguiente_Click);
+            // 
+            // btnPaginaAnterior
+            // 
+            this.btnPaginaAnterior.Location = new System.Drawing.Point(41, 463);
+            this.btnPaginaAnterior.Name = "btnPaginaAnterior";
+            this.btnPaginaAnterior.Size = new System.Drawing.Size(30, 23);
+            this.btnPaginaAnterior.TabIndex = 35;
+            this.btnPaginaAnterior.Text = "<";
+            this.btnPaginaAnterior.UseVisualStyleBackColor = true;
+            this.btnPaginaAnterior.Click += new System.EventHandler(this.btnPaginaAnterior_Click);
+            // 
+            // txtBuscarPagina
+            // 
+            this.txtBuscarPagina.Location = new System.Drawing.Point(149, 466);
+            this.txtBuscarPagina.Name = "txtBuscarPagina";
+            this.txtBuscarPagina.Size = new System.Drawing.Size(96, 20);
+            this.txtBuscarPagina.TabIndex = 36;
+            // 
+            // btnBuscarPagina
+            // 
+            this.btnBuscarPagina.Location = new System.Drawing.Point(251, 463);
+            this.btnBuscarPagina.Name = "btnBuscarPagina";
+            this.btnBuscarPagina.Size = new System.Drawing.Size(52, 23);
+            this.btnBuscarPagina.TabIndex = 37;
+            this.btnBuscarPagina.Text = "Buscar";
+            this.btnBuscarPagina.UseVisualStyleBackColor = true;
+            this.btnBuscarPagina.Click += new System.EventHandler(this.btnBuscarPagina_Click);
             // 
             // FormTablero
             // 
@@ -782,6 +852,7 @@
             this.gbIntervalos.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtCantidadIntervalos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBuscarPagina)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -845,5 +916,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn orden;
         private System.Windows.Forms.DataGridViewTextBoxColumn variable_aleatoria;
         private System.Windows.Forms.TextBox tbxResultadoChiCuadrado;
+        private System.Windows.Forms.Button btnBuscarPagina;
+        private System.Windows.Forms.NumericUpDown txtBuscarPagina;
+        private System.Windows.Forms.Button btnPaginaAnterior;
+        private System.Windows.Forms.Button btnPaginaSiguiente;
+        private System.Windows.Forms.Button btnUltimaPagina;
+        private System.Windows.Forms.Button btnPrimeraPagina;
     }
 }

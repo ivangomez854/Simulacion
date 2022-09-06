@@ -383,5 +383,48 @@ namespace Simulacion.InterfacesUsuario
                     break;
             }
         }
+
+        private void btnPrimeraPagina_Click(object sender, EventArgs e)
+        {
+            this.dataGridView1.DataSource = this.paginador.ObtenerPrimerPagina();
+            this.dataGridView1.FirstDisplayedScrollingRowIndex = 0;
+        }
+
+        private void btnPaginaAnterior_Click(object sender, EventArgs e)
+        {
+            BindingList<VariableAleatoria> aux = this.paginador.ObtenerPaginaAnterior();
+
+            this.dataGridView1.DataSource = aux is null ? this.dataGridView1.DataSource : aux;
+            this.dataGridView1.FirstDisplayedScrollingRowIndex = 0;
+        }
+
+        private void btnPaginaSiguiente_Click(object sender, EventArgs e)
+        {
+            BindingList<VariableAleatoria> aux = this.paginador.ObtenerPaginaSiguiente();
+
+            this.dataGridView1.DataSource = aux is null ? this.dataGridView1.DataSource : aux;
+            this.dataGridView1.FirstDisplayedScrollingRowIndex = 0;
+        }
+
+        private void btnUltimaPagina_Click(object sender, EventArgs e)
+        {
+            this.dataGridView1.DataSource = this.paginador.ObtenerUltimaPagina();
+            this.dataGridView1.FirstDisplayedScrollingRowIndex = 0;
+        }
+
+        private void btnBuscarPagina_Click(object sender, EventArgs e)
+        {
+            BindingList<VariableAleatoria> aux = this.paginador.BuscarPaginaXIndice(Convert.ToInt32(txtBuscarPagina.Value.ToString()) - 1);
+
+            if (aux is null)
+            {
+                MessageBox.Show("Fuera de rango. Total items: " + this.listita.Count);
+                return;
+            }
+
+            this.dataGridView1.DataSource = aux;
+            this.dataGridView1.FirstDisplayedScrollingRowIndex = 0;
+
+        }
     }
 }
