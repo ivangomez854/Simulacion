@@ -66,27 +66,7 @@ namespace Simulacion.Controladores
         /// <returns></returns>
         private int CalcularSegmentosBusqueda(double cantidad)
         {
-            int cantidadSegmentosBusqueda = 1;
-            if (cantidad > 10000000)
-            {
-                cantidadSegmentosBusqueda = 500;
-            }
-            else if (cantidad > 5000000)
-            {
-                cantidadSegmentosBusqueda = 400;
-            }
-            else if (cantidad > 1000000)
-            {
-                cantidadSegmentosBusqueda = 300;
-            }
-            else if (cantidad > 100000)
-            {
-                cantidadSegmentosBusqueda = 200;
-            }
-            else if (cantidad > 10000)
-            {
-                cantidadSegmentosBusqueda = 100;
-            }
+            int cantidadSegmentosBusqueda = cantidad / 10000 >= 1 ? (int)Math.Truncate(cantidad / 10000) : 1;
             return cantidadSegmentosBusqueda;
         }
     }

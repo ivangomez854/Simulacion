@@ -3,6 +3,7 @@ using Simulacion.Controladores;
 using Simulacion.Entidades;
 using Simulacion.Entidades.Interfaces;
 using Simulacion.Entidades.Randoms;
+using Simulacion.Entidades.Utiles;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -48,6 +49,8 @@ namespace Simulacion.InterfacesUsuario
         private static readonly int DEFAULT_MEDIA = 0;
 
         private BindingList<VariableAleatoria> listita = new BindingList<VariableAleatoria>();
+
+        private Paginador paginador;
 
         public FormTablero()
         {
@@ -134,11 +137,25 @@ namespace Simulacion.InterfacesUsuario
             this.reiniciar();
 
             var controller = new ControladorVA(this.getGeneradorVA());
-
+            
             this.listita = controller.generarListadoVA((double)this.txtCantidad.Value, this.progressBar);
 
-            this.dataGridView1.DataSource = this.listita;
+            this.paginador = new Paginador(this.listita, 20);
+
+            this.dataGridView1.DataSource = this.paginador.ObtenerUltimaPagina();
             this.dataGridView1.FirstDisplayedScrollingRowIndex = this.dataGridView1.Rows.Count - 1;
+
+            // ---------------------- Pruebo paginador siguiente
+            //this.dataGridView1.DataSource = this.paginador.ObtenerPaginaSiguiente();
+            //this.dataGridView1.FirstDisplayedScrollingRowIndex = this.dataGridView1.Rows.Count - 1;
+            
+            // ---------------------- Pruebo paginador siguiente
+            //this.dataGridView1.DataSource = this.paginador.ObtenerPaginaSiguiente();
+            //this.dataGridView1.FirstDisplayedScrollingRowIndex = this.dataGridView1.Rows.Count - 1;
+            
+            // ---------------------- Pruebo paginador siguiente
+            //this.dataGridView1.DataSource = this.paginador.ObtenerPaginaSiguiente();
+            //this.dataGridView1.FirstDisplayedScrollingRowIndex = this.dataGridView1.Rows.Count - 1;
 
             this.gbIntervalos.Visible = true;
 

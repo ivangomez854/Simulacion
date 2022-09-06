@@ -71,6 +71,7 @@
     <Compile Include="Entidades\Randoms\MetodoCongruencialAditivo.cs" />
     <Compile Include="Entidades\Randoms\MetodoCongruencialMixto.cs" />
     <Compile Include="Entidades\Randoms\MetodoLenguaje.cs" />
+    <Compile Include="Entidades\Utiles\Paginador.cs" />
     <Compile Include="Entidades\VariableAleatoria.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
