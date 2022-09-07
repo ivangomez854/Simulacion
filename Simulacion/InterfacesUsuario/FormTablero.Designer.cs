@@ -367,7 +367,7 @@
             this.menu});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1379, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1370, 24);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -451,7 +451,7 @@
             this.progressBar});
             this.statusStrip1.Location = new System.Drawing.Point(0, 663);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(1379, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(1370, 22);
             this.statusStrip1.TabIndex = 24;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -601,7 +601,7 @@
             this.txtChiCuadradoTabulado.Enabled = false;
             this.txtChiCuadradoTabulado.Location = new System.Drawing.Point(154, 41);
             this.txtChiCuadradoTabulado.Maximum = new decimal(new int[] {
-            3163,
+            100000000,
             0,
             0,
             0});
@@ -624,7 +624,7 @@
             this.txtChiCuadradoCalculado.Enabled = false;
             this.txtChiCuadradoCalculado.Location = new System.Drawing.Point(9, 41);
             this.txtChiCuadradoCalculado.Maximum = new decimal(new int[] {
-            3163,
+            10000000,
             0,
             0,
             0});
@@ -742,7 +742,7 @@
             // 
             this.txtCantidadIntervalos.Location = new System.Drawing.Point(9, 41);
             this.txtCantidadIntervalos.Maximum = new decimal(new int[] {
-            999,
+            3216,
             0,
             0,
             0});
@@ -810,7 +810,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1379, 685);
+            this.ClientSize = new System.Drawing.Size(1370, 685);
             this.Controls.Add(this.tabControl);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.statusStrip1);
@@ -822,7 +822,7 @@
             this.Controls.Add(this.lblCantidad);
             this.Controls.Add(this.gbRandom);
             this.MainMenuStrip = this.menuStrip1;
-            this.MinimumSize = new System.Drawing.Size(1395, 724);
+            this.MinimumSize = new System.Drawing.Size(1364, 724);
             this.Name = "FormTablero";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FormTablero";
