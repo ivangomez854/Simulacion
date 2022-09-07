@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Simulacion.Entidades
 {
-    internal class MetodoCongruencialMixto : IGeneradorRandom
+    internal class MetodoCongruencialMixtoMultiplicativo : IGeneradorRandom
     {
         private double a;
         private double c;
@@ -25,7 +25,7 @@ namespace Simulacion.Entidades
         /// <param name="c">Constante independiente</param>
         /// <param name="m">Modulo</param>
         /// <param name="semilla">Valor semilla</param>
-        public MetodoCongruencialMixto(double a, double c, double m, double semilla)
+        public MetodoCongruencialMixtoMultiplicativo(double a, double c, double m, double semilla)
         {
             this.a = a;
             this.c = c;
@@ -41,7 +41,7 @@ namespace Simulacion.Entidades
         /// <param name="a">Constante multiplicativa</param>
         /// <param name="m">Modulo</param>
         /// <param name="semilla">Valor semilla</param>
-        public MetodoCongruencialMixto(double a, double m, double semilla)
+        public MetodoCongruencialMixtoMultiplicativo(double a, double m, double semilla)
         {
             this.a = a;
             this.c = 0;

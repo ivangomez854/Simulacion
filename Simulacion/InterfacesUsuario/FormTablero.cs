@@ -183,9 +183,9 @@ namespace Simulacion.InterfacesUsuario
                 case 3:
                     return new MetodoLenguaje();
                 case 2:
-                    return new MetodoCongruencialMixto((double)this.txtA.Value, (double)this.txtC.Value, (double)this.txtModulo.Value, (double)this.txtSemilla.Value);
+                    return new MetodoCongruencialMixtoMultiplicativo((double)this.txtA.Value, (double)this.txtC.Value, (double)this.txtModulo.Value, (double)this.txtSemilla.Value);
                 case 1:
-                    return new MetodoCongruencialMixto((double)this.txtA.Value, (double)this.txtModulo.Value, (double)this.txtSemilla.Value);
+                    return new MetodoCongruencialMixtoMultiplicativo((double)this.txtA.Value, (double)this.txtModulo.Value, (double)this.txtSemilla.Value);
                 case 0:
                     return new MetodoCongruencialAditivo((double)this.txtA.Value, (double)this.txtC.Value, (double)this.txtModulo.Value, (double)this.txtSemilla.Value);
                 default:

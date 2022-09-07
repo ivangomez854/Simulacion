@@ -69,7 +69,7 @@
     <Compile Include="Entidades\Randoms\FilaVectorEstadoRnd.cs" />
     <Compile Include="Entidades\Randoms\IGeneradorRandom.cs" />
     <Compile Include="Entidades\Randoms\MetodoCongruencialAditivo.cs" />
-    <Compile Include="Entidades\Randoms\MetodoCongruencialMixto.cs" />
+    <Compile Include="Entidades\Randoms\MetodoCongruencialMixtoMultiplicativo.cs" />
     <Compile Include="Entidades\Randoms\MetodoLenguaje.cs" />
     <Compile Include="Entidades\Utiles\Paginador.cs" />
     <Compile Include="Entidades\VariableAleatoria.cs" />

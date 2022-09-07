@@ -20,7 +20,7 @@ namespace Simulacion
 
         private void button1_Click(object sender, EventArgs e)
         {
-            var test = new MetodoCongruencialMixto(15, 0, 1024, 16);
+            var test = new MetodoCongruencialMixtoMultiplicativo(15, 0, 1024, 16);
 
             Console.WriteLine("Primer RND");
             test.obtenerProximoRandom();
@@ -64,7 +64,7 @@ namespace Simulacion
 
         private void btnVANormal_Click(object sender, EventArgs e)
         {
-            var rnd = new MetodoCongruencialMixto(15, 0, 1024, 16);
+            var rnd = new MetodoCongruencialMixtoMultiplicativo(15, 0, 1024, 16);
 
             var generador = new GeneradorVANormal(rnd, 12, 2);
 
@@ -118,7 +118,7 @@ namespace Simulacion
 
         private void btnUniforme_Click(object sender, EventArgs e)
         {
-            var rnd = new MetodoCongruencialMixto(15, 0, 1024, 16);
+            var rnd = new MetodoCongruencialMixtoMultiplicativo(15, 0, 1024, 16);
 
             var generador = new GeneradorVAUniforme(rnd, 2, 12);
 
@@ -172,7 +172,7 @@ namespace Simulacion
 
         private void button2_Click(object sender, EventArgs e)
         {
-            var rnd = new MetodoCongruencialMixto(23, 601, 1024, 16);
+            var rnd = new MetodoCongruencialMixtoMultiplicativo(23, 601, 1024, 16);
 
             var generador = new GeneradorVAPoisson(rnd, 12);
 
