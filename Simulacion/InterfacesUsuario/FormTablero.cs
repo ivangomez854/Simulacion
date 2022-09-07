@@ -1,4 +1,4 @@
-﻿using MathNet.Numerics.Distributions;
+using MathNet.Numerics.Distributions;
 using Simulacion.Controladores;
 using Simulacion.Entidades;
 using Simulacion.Entidades.Interfaces;
@@ -136,6 +136,8 @@ namespace Simulacion.InterfacesUsuario
         {
             this.reiniciar();
 
+            this.gbIntervalos.Visible = false;
+
             var controller = new ControladorVA(this.getGeneradorVA());
             
             this.listita = controller.generarListadoVA((double)this.txtCantidad.Value, this.progressBar);
@@ -164,7 +166,8 @@ namespace Simulacion.InterfacesUsuario
                 this.txtCantidadIntervalos.Enabled = false;
                 this.btnAutocalcular.Enabled = false;
                 this.txtCantidadIntervalos.Value = this.listita.Select(va => va.ValorAleatorio).Distinct().Count();
-            } else
+            }
+            else
             {
                 this.txtCantidadIntervalos.Enabled = true;
                 this.btnAutocalcular.Enabled = true;
@@ -230,6 +233,9 @@ namespace Simulacion.InterfacesUsuario
         {
             this.reiniciarGrafico();
 
+            this.btnAutocalcular.Enabled = false;
+            this.btnGenerarIntervalos.Enabled = false;
+            this.btnGenerarIntervalos.Text = "Generando";
 
             GeneradorIntervalo generadorIntervalo = this.getGeneradorIntervalo();
 
@@ -275,6 +281,10 @@ namespace Simulacion.InterfacesUsuario
             this.pnlGrafico.Visible = true;
 
             this.gbChiCuadrado.Visible = true;
+
+            this.btnAutocalcular.Enabled = true;
+            this.btnGenerarIntervalos.Enabled = true;
+            this.btnGenerarIntervalos.Text = "Generar";
         }
 
         private void btnAutocalcular_Click(object sender, EventArgs e)

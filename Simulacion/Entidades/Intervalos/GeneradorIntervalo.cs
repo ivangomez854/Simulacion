@@ -23,7 +23,7 @@ namespace Simulacion.Entidades.Interfaces
         {
             List<Intervalo> intervalos = new List<Intervalo>();
 
-            List<double> variablesAleatoriasOrdenadas = variablesAleatorias.Select(va => va.ValorAleatorio).OrderBy(va => va).ToList();
+            List<double> variablesAleatoriasOrdenadas = variablesAleatorias.Select(va => va.ValorAleatorio).AsParallel().OrderBy(va => va).ToList();
 
             double minimo = variablesAleatoriasOrdenadas.First();
             double maximo = variablesAleatoriasOrdenadas.Last();

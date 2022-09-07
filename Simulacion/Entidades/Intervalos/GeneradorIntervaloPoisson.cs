@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -25,7 +25,7 @@ namespace Simulacion.Entidades
 
             List<IGrouping<double, VariableAleatoria>> variablesAleatoriasAgrupadas = variablesAleatorias.GroupBy(va => va.ValorAleatorio).ToList();
 
-            List<IGrouping<double, VariableAleatoria>> variablesAleatoriasAgrupadasOrdenadas = variablesAleatoriasAgrupadas.OrderBy(grupo => grupo.Key).ToList();
+            List<IGrouping<double, VariableAleatoria>> variablesAleatoriasAgrupadasOrdenadas = variablesAleatoriasAgrupadas.AsParallel().OrderBy(grupo => grupo.Key).ToList();
 
             int orden = 1;
             foreach (var grupo in variablesAleatoriasAgrupadasOrdenadas)
