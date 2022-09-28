@@ -256,7 +256,24 @@ namespace Simulacion.InterfacesUsuario
 
             this.txtChiCuadradoCalculado.Value = (decimal)chiCuadradoCalculado;
 
-            ChiSquared ch = new ChiSquared(cantidadIntervalos - 1);
+            var gradosDeLibertad = cantidadIntervalos - 1;
+
+            switch (this.cboDistribuciones.SelectedValue)
+            {
+                case 2:
+                    gradosDeLibertad-= 1;
+                    break;
+                case 1:
+                    gradosDeLibertad -= 2;
+                    break;
+                case 0:
+                    gradosDeLibertad -= 1;
+                    break;
+                default:
+                    break;
+            }
+
+            ChiSquared ch = new ChiSquared(gradosDeLibertad);
             double chiCuadradoTabulado = ch.InverseCumulativeDistribution(0.95);
             this.txtChiCuadradoTabulado.Value = (decimal)chiCuadradoTabulado;
 

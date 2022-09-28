@@ -92,7 +92,7 @@
             this.label4.ForeColor = System.Drawing.SystemColors.Highlight;
             this.label4.Location = new System.Drawing.Point(196, 361);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(387, 16);
+            this.label4.Size = new System.Drawing.Size(388, 16);
             this.label4.TabIndex = 4;
             this.label4.Text = "Trabajo práctico 3: Generación de variables aleatorias";
             // 
@@ -110,18 +110,18 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(119, 512);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(107, 13);
+            this.label6.Size = new System.Drawing.Size(113, 13);
             this.label6.TabIndex = 6;
-            this.label6.Text = "0000 - Sciarra Martín";
+            this.label6.Text = "69650 - Sciarra Martín";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(119, 537);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(110, 13);
+            this.label7.Size = new System.Drawing.Size(116, 13);
             this.label7.TabIndex = 7;
-            this.label7.Text = "0000 - Pozzo Marcelo";
+            this.label7.Text = "68095 - Pozzo Marcelo";
             // 
             // label8
             // 
@@ -137,18 +137,18 @@
             this.label9.AutoSize = true;
             this.label9.Location = new System.Drawing.Point(119, 465);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(106, 13);
+            this.label9.Size = new System.Drawing.Size(112, 13);
             this.label9.TabIndex = 9;
-            this.label9.Text = "0000 - Cainero Pablo";
+            this.label9.Text = "68757 - Cainero Pablo";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
             this.label10.Location = new System.Drawing.Point(119, 489);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(118, 13);
+            this.label10.Size = new System.Drawing.Size(124, 13);
             this.label10.TabIndex = 10;
-            this.label10.Text = "0000 - Barberis Micaela";
+            this.label10.Text = "75791 - Barberis Micaela";
             // 
             // label11
             // 
