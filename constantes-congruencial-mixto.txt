@@ -1,0 +1,6 @@
+A:	1546547
+C:	1250
+M:	3215454
+Sem:	654
+
+------Pasan test Chi todos menos Poisson------

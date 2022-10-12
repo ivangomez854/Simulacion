@@ -115,25 +115,18 @@ namespace Simulacion.InterfacesUsuario
             txtSemilla.Enabled = habilitar;
         }
 
-        private void DeshabilitarControlesDistribuciones()
-        {
-            txtLimA.Value = 0;
-            txtLimA.Enabled = false;
-            txtLimB.Value = 0;
-            txtLimB.Enabled = false;
-
-            txtMedia.Value = 0;
-            txtMedia.Enabled = false;
-
-            txtDesvEst.Value = 0;
-            txtDesvEst.Enabled = false;
-
-            txtLamda.Value = 0;
-            txtLamda.Enabled = false;
-        }
-
         private void btnGenerar_Click(object sender, EventArgs e)
         {
+            if (!validarControlesRandom())
+            {
+                MessageBox.Show("Parametros de generador de randoms incorrectos");
+                return;
+            } else if (!validarControlesDistribuciones())
+            {
+                MessageBox.Show("Parametros de distribucion incorrectos");
+                return;
+            }
+
             this.reiniciar();
 
             this.gbIntervalos.Visible = false;
@@ -146,18 +139,6 @@ namespace Simulacion.InterfacesUsuario
 
             this.dataGridView1.DataSource = this.paginador.ObtenerUltimaPagina();
             this.dataGridView1.FirstDisplayedScrollingRowIndex = this.dataGridView1.Rows.Count - 1;
-
-            // ---------------------- Pruebo paginador siguiente
-            //this.dataGridView1.DataSource = this.paginador.ObtenerPaginaSiguiente();
-            //this.dataGridView1.FirstDisplayedScrollingRowIndex = this.dataGridView1.Rows.Count - 1;
-            
-            // ---------------------- Pruebo paginador siguiente
-            //this.dataGridView1.DataSource = this.paginador.ObtenerPaginaSiguiente();
-            //this.dataGridView1.FirstDisplayedScrollingRowIndex = this.dataGridView1.Rows.Count - 1;
-            
-            // ---------------------- Pruebo paginador siguiente
-            //this.dataGridView1.DataSource = this.paginador.ObtenerPaginaSiguiente();
-            //this.dataGridView1.FirstDisplayedScrollingRowIndex = this.dataGridView1.Rows.Count - 1;
 
             this.gbIntervalos.Visible = true;
 
@@ -178,6 +159,7 @@ namespace Simulacion.InterfacesUsuario
 
         private IGeneradorRandom getGeneradorRandom()
         {
+
             switch (this.cboMetodoRandom.SelectedValue)
             {
                 case 3:
@@ -191,6 +173,24 @@ namespace Simulacion.InterfacesUsuario
                 default:
                     return null;
             }
+        }
+
+        private bool validarControlesRandom()
+        {
+            if ((int)cboMetodoRandom.SelectedValue < 3)
+                return (txtA.Value != 0 && txtModulo.Value != 0);
+            return true;
+        }
+
+        private bool validarControlesDistribuciones()
+        {
+            if ((int)cboDistribuciones.SelectedValue == 3)
+                return (txtLimA.Value < txtLimB.Value);
+            if ((int)cboDistribuciones.SelectedValue == 2)
+                return (txtLamda.Value > 0);
+            if ((int)cboDistribuciones.SelectedValue == 0)
+                return (txtLamda.Value > 0);
+            return true;
         }
 
         private IGeneradorVA getGeneradorVA()
@@ -328,6 +328,8 @@ namespace Simulacion.InterfacesUsuario
         {
             this.reiniciarGrafico();
             this.reiniciarAleatorios();
+            this.paginador = null;
+            this.dataGridView1.DataSource = null;
         }
 
         private void reiniciarGrafico()
@@ -413,45 +415,59 @@ namespace Simulacion.InterfacesUsuario
 
         private void btnPrimeraPagina_Click(object sender, EventArgs e)
         {
-            this.dataGridView1.DataSource = this.paginador.ObtenerPrimerPagina();
-            this.dataGridView1.FirstDisplayedScrollingRowIndex = 0;
+            if (this.paginador != null)
+            {
+                this.dataGridView1.DataSource = this.paginador.ObtenerPrimerPagina();
+                this.dataGridView1.FirstDisplayedScrollingRowIndex = 0;
+            }
         }
 
         private void btnPaginaAnterior_Click(object sender, EventArgs e)
         {
-            BindingList<VariableAleatoria> aux = this.paginador.ObtenerPaginaAnterior();
+            if (this.paginador != null)
+            {
+                BindingList<VariableAleatoria> aux = this.paginador.ObtenerPaginaAnterior();
 
-            this.dataGridView1.DataSource = aux is null ? this.dataGridView1.DataSource : aux;
-            this.dataGridView1.FirstDisplayedScrollingRowIndex = 0;
+                this.dataGridView1.DataSource = aux is null ? this.dataGridView1.DataSource : aux;
+                this.dataGridView1.FirstDisplayedScrollingRowIndex = 0;
+            }
         }
 
         private void btnPaginaSiguiente_Click(object sender, EventArgs e)
         {
-            BindingList<VariableAleatoria> aux = this.paginador.ObtenerPaginaSiguiente();
+            if (this.paginador != null)
+            {
+                BindingList<VariableAleatoria> aux = this.paginador.ObtenerPaginaSiguiente();
 
-            this.dataGridView1.DataSource = aux is null ? this.dataGridView1.DataSource : aux;
-            this.dataGridView1.FirstDisplayedScrollingRowIndex = 0;
+                this.dataGridView1.DataSource = aux is null ? this.dataGridView1.DataSource : aux;
+                this.dataGridView1.FirstDisplayedScrollingRowIndex = 0;
+            }
         }
 
         private void btnUltimaPagina_Click(object sender, EventArgs e)
         {
-            this.dataGridView1.DataSource = this.paginador.ObtenerUltimaPagina();
-            this.dataGridView1.FirstDisplayedScrollingRowIndex = 0;
+            if (this.paginador != null)
+            {
+                this.dataGridView1.DataSource = this.paginador.ObtenerUltimaPagina();
+                this.dataGridView1.FirstDisplayedScrollingRowIndex = 0;
+            }
         }
 
         private void btnBuscarPagina_Click(object sender, EventArgs e)
         {
-            BindingList<VariableAleatoria> aux = this.paginador.BuscarPaginaXIndice(Convert.ToInt32(txtBuscarPagina.Value.ToString()) - 1);
-
-            if (aux is null)
+            if (this.paginador != null)
             {
-                MessageBox.Show("Fuera de rango. Total items: " + this.listita.Count);
-                return;
+                BindingList<VariableAleatoria> aux = this.paginador.BuscarPaginaXIndice(Convert.ToInt32(txtBuscarPagina.Value.ToString()) - 1);
+
+                if (aux is null)
+                {
+                    MessageBox.Show("Fuera de rango. Total items: " + this.listita.Count);
+                    return;
+                }
+
+                this.dataGridView1.DataSource = aux;
+                this.dataGridView1.FirstDisplayedScrollingRowIndex = 0;
             }
-
-            this.dataGridView1.DataSource = aux;
-            this.dataGridView1.FirstDisplayedScrollingRowIndex = 0;
-
         }
     }
 }

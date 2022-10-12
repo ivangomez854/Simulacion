@@ -30,9 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormTablero));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.gbRandom = new System.Windows.Forms.GroupBox();
             this.txtSemilla = new System.Windows.Forms.NumericUpDown();
             this.txtModulo = new System.Windows.Forms.NumericUpDown();
@@ -144,6 +144,11 @@
             // txtSemilla
             // 
             this.txtSemilla.Location = new System.Drawing.Point(434, 76);
+            this.txtSemilla.Maximum = new decimal(new int[] {
+            10000000,
+            0,
+            0,
+            0});
             this.txtSemilla.Name = "txtSemilla";
             this.txtSemilla.Size = new System.Drawing.Size(120, 20);
             this.txtSemilla.TabIndex = 9;
@@ -151,6 +156,11 @@
             // txtModulo
             // 
             this.txtModulo.Location = new System.Drawing.Point(287, 76);
+            this.txtModulo.Maximum = new decimal(new int[] {
+            10000000,
+            0,
+            0,
+            0});
             this.txtModulo.Name = "txtModulo";
             this.txtModulo.Size = new System.Drawing.Size(120, 20);
             this.txtModulo.TabIndex = 8;
@@ -158,6 +168,11 @@
             // txtC
             // 
             this.txtC.Location = new System.Drawing.Point(146, 76);
+            this.txtC.Maximum = new decimal(new int[] {
+            10000000,
+            0,
+            0,
+            0});
             this.txtC.Name = "txtC";
             this.txtC.Size = new System.Drawing.Size(120, 20);
             this.txtC.TabIndex = 7;
@@ -165,6 +180,11 @@
             // txtA
             // 
             this.txtA.Location = new System.Drawing.Point(6, 76);
+            this.txtA.Maximum = new decimal(new int[] {
+            10000000,
+            0,
+            0,
+            0});
             this.txtA.Name = "txtA";
             this.txtA.Size = new System.Drawing.Size(120, 20);
             this.txtA.TabIndex = 6;
@@ -237,6 +257,11 @@
             // txtLamda
             // 
             this.txtLamda.Location = new System.Drawing.Point(448, 76);
+            this.txtLamda.Maximum = new decimal(new int[] {
+            10000000,
+            0,
+            0,
+            0});
             this.txtLamda.Name = "txtLamda";
             this.txtLamda.Size = new System.Drawing.Size(90, 20);
             this.txtLamda.TabIndex = 20;
@@ -258,6 +283,11 @@
             // txtDesvEst
             // 
             this.txtDesvEst.Location = new System.Drawing.Point(337, 76);
+            this.txtDesvEst.Maximum = new decimal(new int[] {
+            10000000,
+            0,
+            0,
+            0});
             this.txtDesvEst.Name = "txtDesvEst";
             this.txtDesvEst.Size = new System.Drawing.Size(90, 20);
             this.txtDesvEst.TabIndex = 17;
@@ -270,6 +300,11 @@
             // txtMedia
             // 
             this.txtMedia.Location = new System.Drawing.Point(227, 76);
+            this.txtMedia.Maximum = new decimal(new int[] {
+            10000000,
+            0,
+            0,
+            0});
             this.txtMedia.Name = "txtMedia";
             this.txtMedia.Size = new System.Drawing.Size(90, 20);
             this.txtMedia.TabIndex = 16;
@@ -282,6 +317,11 @@
             // txtLimB
             // 
             this.txtLimB.Location = new System.Drawing.Point(114, 76);
+            this.txtLimB.Maximum = new decimal(new int[] {
+            10000000,
+            0,
+            0,
+            0});
             this.txtLimB.Name = "txtLimB";
             this.txtLimB.Size = new System.Drawing.Size(90, 20);
             this.txtLimB.TabIndex = 15;
@@ -294,6 +334,11 @@
             // txtLimA
             // 
             this.txtLimA.Location = new System.Drawing.Point(4, 76);
+            this.txtLimA.Maximum = new decimal(new int[] {
+            10000000,
+            0,
+            0,
+            0});
             this.txtLimA.Name = "txtLimA";
             this.txtLimA.Size = new System.Drawing.Size(90, 20);
             this.txtLimA.TabIndex = 14;
@@ -682,24 +727,24 @@
             // 
             // chartIntervalos
             // 
-            chartArea2.AxisX.Interval = 1D;
-            chartArea2.AxisX.Title = "Intervalo";
-            chartArea2.AxisX.ToolTip = "Intervalo";
-            chartArea2.AxisY.Title = "Frecuencia";
-            chartArea2.Name = "ChartArea1";
-            this.chartIntervalos.ChartAreas.Add(chartArea2);
+            chartArea1.AxisX.Interval = 1D;
+            chartArea1.AxisX.Title = "Intervalo";
+            chartArea1.AxisX.ToolTip = "Intervalo";
+            chartArea1.AxisY.Title = "Frecuencia";
+            chartArea1.Name = "ChartArea1";
+            this.chartIntervalos.ChartAreas.Add(chartArea1);
             this.chartIntervalos.Location = new System.Drawing.Point(3, 3);
             this.chartIntervalos.Name = "chartIntervalos";
-            series3.ChartArea = "ChartArea1";
-            series3.Color = System.Drawing.Color.Green;
-            series3.IsVisibleInLegend = false;
-            series3.Name = "serieFrecuenciaObservada";
-            series4.ChartArea = "ChartArea1";
-            series4.Color = System.Drawing.Color.Maroon;
-            series4.IsVisibleInLegend = false;
-            series4.Name = "serieFrecuenciaEsperada";
-            this.chartIntervalos.Series.Add(series3);
-            this.chartIntervalos.Series.Add(series4);
+            series1.ChartArea = "ChartArea1";
+            series1.Color = System.Drawing.Color.Green;
+            series1.IsVisibleInLegend = false;
+            series1.Name = "serieFrecuenciaObservada";
+            series2.ChartArea = "ChartArea1";
+            series2.Color = System.Drawing.Color.Maroon;
+            series2.IsVisibleInLegend = false;
+            series2.Name = "serieFrecuenciaEsperada";
+            this.chartIntervalos.Series.Add(series1);
+            this.chartIntervalos.Series.Add(series2);
             this.chartIntervalos.Size = new System.Drawing.Size(568, 394);
             this.chartIntervalos.TabIndex = 0;
             this.chartIntervalos.Text = "chart1";
